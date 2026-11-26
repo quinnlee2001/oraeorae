@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>오래오래 살았습니다만 | 해결사 사무소</title>
+<meta name="description" content="옛날 옛적 그 사람들, 지금 서울에 삽니다. 쓸쓸하고 정 많은 현대 판타지 느와르.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Do+Hyeon&family=Nanum+Pen+Script&family=Noto+Serif+KR:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --night:#0d0f17; --wall:#161926; --panel:#1d2132; --line:#05060a;
+  --paper:#ece5d3; --ink:#15131a; --dim:#9a98a6; --neon:#ff4f9a; --lamp:#f2c14e; --seal:#d5392c;
+  --dok:#e0503a; --beast:#f0913a; --saram:#b9558f; --geon:#86bfe0; --out:#8f96a3;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{margin:0;background:var(--night);color:var(--paper);font-family:"Noto Serif KR",serif;font-size:17px;line-height:1.85;
+  word-break:keep-all;overflow-wrap:break-word;
+  background-image:linear-gradient(180deg,rgba(255,79,154,.10),transparent 26rem),repeating-linear-gradient(100deg,transparent 0 46px,rgba(134,191,224,.035) 46px 48px)}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--lamp);outline-offset:3px}
+h1,h2,h3,h4{font-family:"Do Hyeon",sans-serif;font-weight:400}
+p{margin:0 0 1rem}
+
+header{text-align:center;padding:4rem 1rem 2.2rem}
+.sign{display:inline-block;margin:0 0 1.2rem;padding:.15rem .9rem;border:2px solid var(--neon);color:var(--neon);font-family:"Do Hyeon",sans-serif;font-size:1rem;letter-spacing:.2em;box-shadow:0 0 12px rgba(255,79,154,.55),inset 0 0 8px rgba(255,79,154,.35)}
+h1{margin:0;font-size:clamp(2.6rem,10vw,5.4rem);line-height:1.08;color:var(--paper);text-shadow:4px 4px 0 var(--line),0 0 26px rgba(255,79,154,.45)}
+h1 span{color:var(--neon)}
+.one{margin:1.1rem auto 0;font-size:1.15rem;color:var(--lamp)}
+.greet{margin:.9rem auto 0;max-width:32em;color:var(--dim)}
+.count{margin:1.2rem auto 0;font-family:"Do Hyeon",sans-serif;color:var(--paper);letter-spacing:.04em}
+
+nav{position:sticky;top:0;z-index:5;background:var(--line);border-top:3px solid var(--paper);border-bottom:3px solid var(--paper);margin-bottom:2.4rem}
+nav ul{list-style:none;margin:0 auto;padding:0;max-width:54rem;display:flex;justify-content:center;flex-wrap:wrap}
+nav a{display:block;padding:.55rem .9rem;font-family:"Do Hyeon",sans-serif;font-size:1.1rem;text-decoration:none}
+nav a:hover{color:var(--neon)}
+
+main{max-width:54rem;margin:0 auto 4rem;padding:0 1rem}
+.sheet{background:var(--wall);border:3px solid var(--line);box-shadow:8px 8px 0 var(--line);padding:2.2rem clamp(1.1rem,5vw,3rem);margin-bottom:2rem;scroll-margin-top:4rem}
+h2{font-size:2rem;line-height:1.2;margin:0 0 1.1rem;padding-bottom:.4rem;border-bottom:4px solid var(--paper)}
+h2 small{font-size:1rem;color:var(--dim);margin-left:.5rem}
+h3{font-size:1.4rem;margin:0}
+@media (max-width:540px){h2 small{display:block;margin:.2rem 0 0}}
+.note{color:var(--dim);font-size:.95rem}
+b.w{color:var(--lamp);font-weight:700}
+
+.words{margin:1.4rem 0 0;display:grid;grid-template-columns:repeat(2,1fr);gap:.6rem}
+.words div{background:var(--panel);border:2px solid var(--line);padding:.6rem .8rem}
+.words dt{font-family:"Do Hyeon",sans-serif;font-size:1.15rem;color:var(--lamp)}
+.words dd{margin:0;font-size:.93rem;line-height:1.6}
+@media (max-width:540px){.words{grid-template-columns:1fr}}
+
+.faction{border-left:12px solid var(--c);padding:.2rem 0 .2rem 1rem;margin-top:2rem}
+.faction h3 em{font-style:normal;color:var(--c)}
+.where{margin:.2rem 0 .3rem;color:var(--c);font-size:.9rem;font-weight:700}
+.faction>p{margin:.2rem 0 .9rem}
+.tier{display:inline-block;margin:.2rem 0 .6rem;padding:0 .6rem;border:2px solid var(--c);font-size:.95rem;line-height:1.6}
+.people+.tier{margin-top:1.2rem}
+.people{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,1fr);gap:.9rem}
+.person{background:var(--panel);border:3px solid var(--line);display:flex;flex-direction:column}
+.photo{aspect-ratio:1/1;color:var(--dim);background:radial-gradient(circle at 50% 38%,#3a4160,#1a1d2b 72%);box-shadow:inset 0 -8px 0 var(--c);border-bottom:3px solid var(--line);display:flex;align-items:flex-end;justify-content:center;overflow:hidden;font-family:"Do Hyeon",sans-serif;font-size:.95rem}
+.photo.none{align-items:center;background:repeating-linear-gradient(45deg,#232838 0 10px,#1b1f2d 10px 20px);color:var(--dim)}
+.photo img{display:block;width:100%;height:100%;object-fit:cover}
+.person .txt{padding:.6rem .75rem .8rem}
+.person b{display:block;font-family:"Do Hyeon",sans-serif;font-weight:400;font-size:1.35rem;line-height:1.25}
+.person small{display:block;color:var(--c);font-weight:700;font-size:.82rem;line-height:1.5}
+.person span{display:block;font-size:.9rem;line-height:1.65;margin-top:.35rem}
+.job{color:var(--dim)}
+.job::before{content:"들고 오는 일 · ";color:var(--lamp)}
+.say{display:block;font-style:normal;font-weight:700;font-size:.9rem;line-height:1.6;margin-top:.5rem;padding-left:.55rem;border-left:4px solid var(--c)}
+@media (max-width:760px){.people{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:540px){
+  .people{grid-template-columns:1fr}
+  .person{display:grid;grid-template-columns:104px 1fr}
+  .photo{aspect-ratio:auto;min-height:104px;border-bottom:0;border-right:3px solid var(--line);font-size:.8rem;text-align:center}
+}
+.extras{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(2,1fr);gap:.7rem}
+.extras li{border:2px dashed var(--c);padding:.55rem .75rem;background:var(--panel)}
+.extras b{display:block;font-family:"Do Hyeon",sans-serif;font-weight:400;font-size:1.15rem;line-height:1.3}
+.extras small{display:block;color:var(--c);font-weight:700;font-size:.82rem}
+.extras span{display:block;font-size:.9rem;line-height:1.65;margin-top:.2rem}
+@media (max-width:540px){.extras{grid-template-columns:1fr}}
+
+.ledger{background:var(--paper);color:var(--ink);border:3px solid var(--line);padding:1.2rem 1.3rem;margin:1.2rem 0}
+.ledger h3{text-align:center;margin-bottom:.8rem;border-bottom:3px double var(--ink);padding-bottom:.4rem}
+.ledger dl{margin:0;display:grid;grid-template-columns:8.5em 1fr;row-gap:.3rem}
+.ledger dt{font-weight:700}
+.ledger dd{margin:0;border-bottom:1px solid var(--ink);color:#5c5661}
+.roles{display:grid;grid-template-columns:repeat(2,1fr);gap:.9rem;margin:1.2rem 0 0}
+.role{border:2px solid var(--line);padding:.9rem 1rem;background:var(--panel)}
+.role p{margin:.4rem 0 0;font-size:.95rem;line-height:1.7}
+@media (max-width:540px){.roles{grid-template-columns:1fr}.ledger dl{grid-template-columns:1fr}}
+
+.todo{list-style:none;margin:0;padding:0}
+.todo li{position:relative;padding:.55rem 0 .55rem 1.6rem;border-top:1px dashed #3a4057}
+.todo li:first-child{border-top:0}
+.todo li::before{content:"";position:absolute;left:.1rem;top:1.15rem;width:.7rem;height:.7rem;background:var(--neon);border:2px solid var(--line)}
+
+.enter{text-align:center}
+.stamp{display:inline-block;margin-top:.6rem;padding:.7rem 1.6rem;font-family:"Do Hyeon",sans-serif;font-size:1.3rem;color:var(--dim);background:var(--panel);border:3px solid var(--dim);text-decoration:none}
+footer{text-align:center;color:var(--dim);padding:0 1rem 3rem;font-size:.92rem}
+footer .last{color:var(--paper);font-family:"Do Hyeon",sans-serif;font-size:1.2rem}
+
+.gate{position:fixed;inset:0;z-index:20;background:#07080d;display:flex;align-items:center;justify-content:center;padding:1rem;overflow:auto}
+.gate[hidden]{display:none}
+body.gated{overflow:hidden}
+.door{width:100%;max-width:26rem;margin:auto;background:#232634;border:4px solid var(--line);box-shadow:0 0 0 3px #333848,0 -30px 80px rgba(242,193,78,.16);padding:3.2rem 1.6rem 3.6rem;text-align:center;position:relative;animation:flick 1.6s steps(1) 1}
+@keyframes flick{0%{filter:brightness(.25)}18%{filter:brightness(1)}28%{filter:brightness(.25)}46%{filter:brightness(1)}56%{filter:brightness(.4)}70%,100%{filter:brightness(1)}}
+@media (prefers-reduced-motion:reduce){.door{animation:none}}
+.door::after{content:"";position:absolute;right:1.1rem;top:55%;width:14px;height:14px;border-radius:50%;background:#8b8571;border:3px solid var(--line)}
+.floor{margin:0 0 1.6rem;color:var(--dim);font-size:.9rem;letter-spacing:.12em}
+.taped{display:inline-block;position:relative;background:var(--paper);color:var(--ink);border:0;padding:1.5rem 1.6rem 1.2rem;font-family:"Nanum Pen Script",cursive;font-size:2rem;line-height:1.25;transform:rotate(-2deg);box-shadow:4px 4px 0 var(--line);cursor:pointer}
+.taped::before{content:"";position:absolute;top:-10px;left:50%;width:72px;height:22px;margin-left:-36px;background:rgba(242,193,78,.75);transform:rotate(3deg)}
+.taped small{display:block;font-size:1.25rem;color:#5c5661}
+.hint{margin:1.6rem 0 0;color:var(--dim);font-size:.9rem}
+.book{width:100%;max-width:30rem;margin:auto;background:var(--paper);color:var(--ink);border:4px solid var(--line);box-shadow:8px 8px 0 #000;padding:2rem clamp(1.2rem,5vw,2.4rem);position:relative}
+.book[hidden],.door[hidden]{display:none}
+.book h2{text-align:center;border-bottom:3px double var(--ink);font-size:1.7rem}
+.book .from{margin:0 0 .5rem;text-align:center;color:#5c5661;font-size:.9rem}
+.book label{display:block;font-weight:700;margin-top:1rem}
+.book input{width:100%;font:inherit;font-size:1.2rem;padding:.4rem .2rem;border:0;border-bottom:2px solid var(--ink);background:transparent;color:var(--ink)}
+.book .fine{margin:.5rem 0 0;color:#5c5661;font-size:.85rem}
+.go{display:block;width:100%;margin-top:1rem;padding:.7rem;font-family:"Do Hyeon",sans-serif;font-size:1.35rem;color:var(--paper);background:var(--ink);border:3px solid var(--line);cursor:pointer}
+.go:hover{background:var(--seal)}
+.seal{position:absolute;right:1rem;top:1rem;padding:.1rem .7rem;border:5px solid var(--seal);border-radius:8px;color:var(--seal);font-family:"Do Hyeon",sans-serif;font-size:2rem;opacity:0;transform:rotate(-12deg) scale(2.2);transition:opacity .2s,transform .2s}
+.gate.stamped .seal{opacity:1;transform:rotate(-12deg) scale(1)}
+@media (prefers-reduced-motion:reduce){.seal{transition:none}}
+</style>
+</head>
+<body>
+
+<div class="gate" id="gate" hidden>
+  <div class="door" id="door">
+    <p class="floor">을지로 인쇄 골목 · 삼 층</p>
+    <button class="taped" type="button" id="paper">해결사 사무소.<br>외출 중.</button>
+    <p class="hint">석 달 묵은 글씨입니다. 종이를 누르면 문이 열립니다.</p>
+  </div>
+  <form class="book" id="book" hidden novalidate>
+    <span class="seal" aria-hidden="true">등재</span>
+    <p class="from">종로 대서소에서 나왔습니다</p>
+    <h2>계 장부 · 해결사 등재</h2>
+    <p>"빈칸은 사실대로 적어 주십시오. 장부는 틀리면 안 됩니다. 성함을 여쭙겠습니다."</p>
+    <label for="who">성명</label>
+    <input id="who" name="who" type="text" maxlength="12" autocomplete="off">
+    <p class="fine">비워 두어도 됩니다. 적은 이름은 이 화면에서만 쓰고 어디에도 보내지 않습니다. 이 안내는 가상의 이야기를 소개합니다.</p>
+    <button class="go" type="submit" id="goBtn">등재하기</button>
+  </form>
+</div>
+
+<header>
+  <p class="sign">해결사 사무소</p>
+  <h1>오래오래<br>살았습니다<span>만</span></h1>
+  <p class="one">옛날 옛적 그 사람들, 지금 서울에 삽니다.</p>
+  <p class="greet" id="greet">"오늘부로 이 사무소와 열쇠, 전임의 수첩이 귀하께 넘어갑니다."</p>
+  <p class="greet" id="greet2">"개업 축하! 팥죽은 할멈이 외상이래."</p>
+  <p class="count">주연 12명(남 6·여 6) · 조연 8명 · 스탯 7종 · 엔딩 10종</p>
+</header>
+
+<nav aria-label="목차">
+  <ul>
+    <li><a href="#world">서울</a></li>
+    <li><a href="#people">네 패와 인물</a></li>
+    <li><a href="#start">시작</a></li>
+    <li><a href="#play">할 수 있는 일</a></li>
+  </ul>
+</nav>
+
+<main>
+
+<section class="sheet" id="world">
+  <h2>지금, 서울 <small>쓸쓸하고 정 많은 현대 판타지 느와르</small></h2>
+  <p>옛날 옛적 그 사람들이 지금 서울에 삽니다. 도깨비는 동대문 야시장에서 장사를 하고, 구미호는 강남에 병원을 차렸고, 저승사자는 종로의 낡은 사무소에서 서류를 뗍니다. 놀부는 여의도에 건물을 올렸고 심청은 다시는 뛰어들지 않겠다고 합니다. 이야기가 사람들 입에 오르는 동안은 늙지도 죽지도 않는 이들. 스스로를 <b class="w">묵은이</b>라고 부릅니다.</p>
+  <p>묵은이는 숨어 삽니다. 들키면 끝이기 때문입니다. 사람으로 살려면 얼굴과 신분 한 벌, <b class="w">탈</b>이 있어야 하는데 탈 한 장을 만들려면 네 패가 다 있어야 합니다. 한 패가 이름을, 한 패가 얼굴을, 한 패가 서류를, 한 패가 돈을 댑니다. 네 패가 서로를 미워하면서도 갈라서지 못하는 까닭입니다. 약조는 셋. 들키지 않는다. 산 사람을 해치지 않는다. 패 사이의 일은 달마다 모이는 <b class="w">계</b>에서 푼다.</p>
+  <p>그런데 서울은 해마다 숨기 어려워집니다. 재개발이 골목을 지우고, 카메라가 늘고, 신분은 전산으로 확인합니다. 탈은 늘 모자라고, 한 이름으로 스무 해쯤 살면 늙지 않는 것이 눈에 띄어 갈아 써야 합니다. 요즘은 탈이 깨진 채 발견되는 묵은이까지 나옵니다. 누구 짓인지는 아무도 모르고, 네 패는 서로를 의심합니다.</p>
+  <p>묵은이는 관청과 경찰과 병원과 계약서의 문턱을 넘지 못하고, 서로를 믿지도 못합니다. 그래서 일이 생기면 어느 패에도 들지 않은 단 한 사람을 부릅니다. 네 패가 함께 삯을 주는 해결사. <span id="you">그게 당신입니다.</span> 을지로 인쇄 골목 삼 층, 석 달째 '외출 중'이던 사무소를 넘겨받는 날부터 이야기가 시작됩니다.</p>
+  <dl class="words">
+    <div><dt>묵은이</dt><dd>옛이야기 속 존재들이 스스로를 부르는 말. 오래 묵은 이</dd></div>
+    <div><dt>산 사람</dt><dd>보통 사람</dd></div>
+    <div><dt>탈</dt><dd>사람으로 살기 위한 얼굴과 신분 한 벌</dd></div>
+    <div><dt>계</dt><dd>네 패가 달마다 모이는 모임</dd></div>
+    <div><dt>패 밖</dt><dd>탈을 얻지 못해 산과 물밑과 지하에 사는 이들</dd></div>
+  </dl>
+</section>
+
+<section class="sheet" id="people">
+  <h2>네 패가 서울을 나눠 쥡니다</h2>
+  <p>한 패를 도우면 다른 패가 압니다. 소문은 하룻밤이면 서울을 돕니다. 나이는 겉보기 나이이고, 전원 수백 년을 산 성인입니다.</p>
+
+  <div class="faction" style="--c:var(--dok)">
+    <h3>도깨비패 <em>'밤장'</em></h3>
+    <p class="where">동대문과 청계천 · 야시장과 도매상 · 돈과 물건</p>
+    <p>밤에만 서는 장. 내기와 외상으로 굴러가고, 판이 계속 벌어지기만 바랍니다.</p>
+    <h4 class="tier">주연</h4>
+    <ul class="people">
+      <li class="person"><div class="photo"><img src="images/bang-manseok.webp" alt="방만석" width="640" height="640" loading="lazy"></div><div class="txt"><b>방만석</b><small>「도깨비방망이」의 도깨비 두령 · 남, 35</small><span>큰 덩치에 걷어 올린 붉은 셔츠. 뚝딱이면 된다고 큰소리치며 누구에게나 내기를 겁니다. 준 것을 자꾸 잊어 갚은 빚을 또 갚습니다.</span><span class="job">도둑맞은 방망이를 찾아 달라</span><em class="say">"뚝딱이면 돼, 김 씨. …내일까지만 기다려 봐."</em></div></li>
+      <li class="person"><div class="photo"><img src="images/mo-jirang.webp" alt="모지랑" width="640" height="640" loading="lazy"></div><div class="txt"><b>모지랑</b><small>「도깨비와 씨름」의 빗자루 도깨비 · 남, 26</small><span>삐죽한 노란 머리에 카키 작업 점퍼. 당신이 맡은 일마다 나타나 누가 먼저 끝내나 붙자고 합니다. 지면 날이 샐 때까지 버팁니다.</span><span class="job">밤새 붙고도 못 이긴 상대가 누구인지</span><em class="say">"한 판 더. 방금 건 미끄러진 거야."</em></div></li>
+      <li class="person"><div class="photo none">사진 준비 중</div><div class="txt"><b>인화</b><small>「도깨비감투」의 감투 임자 · 여, 25</small><span>짧은 머리에 청록 바람막이, 배달 헬멧. 안 보이는 데 익숙해 남의 말에 불쑥 끼어들고, 없는 줄 알고 한 말을 본인 앞에서 그대로 옮깁니다.</span><span class="job">할 말이 있는 얼굴인데 누구에게 해야 할지 모른다</span><em class="say">"아까 나 욕했지? 들었어. 괜찮아, 맞는 말이었어."</em></div></li>
+    </ul>
+    <h4 class="tier">조연</h4>
+    <ul class="extras">
+      <li><b>혹 영감</b><small>「혹부리 영감」 · 남, 60대</small><span>밤장의 노래방 주인. 도깨비를 속여 먹은 유일한 사람이고 그 뒤로 눌러앉았습니다.</span></li>
+      <li><b>팥죽 할멈</b><small>「팥죽 할멈과 호랑이」 · 여, 70대</small><span>밤장의 팥죽집. 누구에게나 한 그릇 줍니다. 범태산만 문턱을 못 넘습니다.</span></li>
+    </ul>
+  </div>
+
+  <div class="faction" style="--c:var(--beast)">
+    <h3>짐승패 <em>'얼굴 골목'</em></h3>
+    <p class="where">강남 · 병원, 미용실, 밤 장사 · 얼굴과 둔갑</p>
+    <p>사람 얼굴을 짓는 골목. 누구보다 사람 같고, 누구보다 사람이 되고 싶습니다.</p>
+    <h4 class="tier">주연</h4>
+    <ul class="people">
+      <li class="person"><div class="photo none">사진 준비 중</div><div class="txt"><b>범태산</b><small>「해와 달이 된 오누이」의 호랑이 · 남, 36</small><span>넘긴 주황빛 머리에 검은 점퍼, 넓은 어깨. 말 대신 몸으로 막아서고 먹을 것부터 챙깁니다. 떡도 담배도 끊고 사탕을 뭅니다.</span><span class="job">하늘로 올라간 오누이에게 전할 말</span><em class="say">"밥은. …아니, 내가 먹겠다는 게 아니라."</em></div></li>
+      <li class="person"><div class="photo none">사진 준비 중</div><div class="txt"><b>구미주</b><small>구미호 · 여, 34</small><span>긴 머리에 흰 정장. 강남의 병원 원장. 사람을 내려다보듯 말하고, 챙겨 준 것은 진료비라고 둘러댑니다.</span><span class="job">병원에서 사라진 얼굴 한 장</span><em class="say">"앉으세요. 서 있으면 더 거슬리니까."</em></div></li>
+      <li class="person"><div class="photo none">사진 준비 중</div><div class="txt"><b>묘연</b><small>「별주부전」의 토끼 · 여, 27</small><span>은회색 단발에 헐렁한 야상. 놀리기 좋아하는 정보상. 가진 것은 늘 다른 데 두고 왔다고 하고, 가지러 가는 길에 약속 장소를 세 번 바꿉니다.</span><span class="job">아직도 자기를 찾는 용궁 사람을 떼어 달라</span><em class="say">"간? 집에 두고 왔지. 볕 좋은 데 널어놨어."</em></div></li>
+    </ul>
+    <h4 class="tier">조연</h4>
+    <ul class="extras">
+      <li><b>까치</b><small>「은혜 갚은 까치」 · 여, 20대</small><span>소문을 물어 나르는 소식통. 은혜도 원한도 꼭 갚습니다.</span></li>
+    </ul>
+  </div>
+
+  <div class="faction" style="--c:var(--saram)">
+    <h3>사람패 <em>'등기소'</em></h3>
+    <p class="where">여의도와 마포 · 부동산과 대부업 · 땅과 서류</p>
+    <p>옛이야기에서 걸어 나온 사람들. 제 이야기의 결말이 마음에 들지 않습니다.</p>
+    <h4 class="tier">주연</h4>
+    <ul class="people">
+      <li class="person"><div class="photo none">사진 준비 중</div><div class="txt"><b>연 회장</b><small>「흥부와 놀부」의 놀부 · 남, 38</small><span>자주색 더블 정장에 넘긴 머리, 날 선 인상. 남이 잘되는 일에는 한 군데를 어그러뜨려 놓고, 제 손으로 고쳐 주며 값을 받습니다.</span><span class="job">마지막 남은 박씨의 행방</span><em class="say">"부러진 건 고치면 돼. 고치는 값은 내가 정하고."</em></div></li>
+      <li class="person"><div class="photo none">사진 준비 중</div><div class="txt"><b>온달</b><small>「바보 온달과 평강공주」 · 남, 30</small><span>큰 키에 낡은 야구 점퍼, 순한 눈매. 배운 대로만 합니다. 배운 순서를 소리 내어 읊으며 일하고, 가라는 말을 듣기 전에는 선 자리를 뜨지 않습니다.</span><span class="job">공주가 남기고 간 숙제의 마지막 줄</span><em class="say">"먼저 인사, 다음에 이름, 그다음에 용건. …맞죠?"</em></div></li>
+      <li class="person"><div class="photo none">사진 준비 중</div><div class="txt"><b>심청</b><small>「심청전」 · 여, 28</small><span>낮게 묶은 긴 머리에 연분홍 롱코트. 부탁을 들으면 안 된다는 말부터 하고, 제가 다치지 않는 데까지라는 조건을 붙여 돕습니다.</span><span class="job">물밑에서 올라온 부탁</span><em class="say">"도와드릴 수는 있어요. 대신 뛰어들어 드리지는 않아요."</em></div></li>
+    </ul>
+    <h4 class="tier">조연</h4>
+    <ul class="extras">
+      <li><b>연흥부</b><small>「흥부와 놀부」의 흥부 · 남, 30대</small><span>거절을 못 하는 호인. 무료 급식소를 합니다. 형과는 말을 안 합니다.</span></li>
+      <li><b>팥쥐</b><small>「콩쥐팥쥐」 · 여, 30대</small><span>연 회장의 비서실장. 모두가 미워하고 본인도 압니다.</span></li>
+    </ul>
+  </div>
+
+  <div class="faction" style="--c:var(--geon)">
+    <h3>건너온 패 <em>'대서소'</em></h3>
+    <p class="where">종로 · 낡은 행정사 사무소 · 이름과 장부</p>
+    <p>저승과 하늘과 물에서 건너와 눌러앉은 이들. 돌아갈 길을 찾거나, 돌아가지 않아도 될 핑계를 찾습니다.</p>
+    <h4 class="tier">주연</h4>
+    <ul class="people">
+      <li class="person"><div class="photo none">사진 준비 중</div><div class="txt"><b>차무명</b><small>저승사자 · 남, 34</small><span>먹색 정장에 검은 중절모, 마르고 큰 키. 사람을 성까지 붙인 이름으로만 부르고 세 번 확인합니다. 이름을 모르는 이에게는 말을 걸지 않습니다.</span><span class="job">장부와 맞지 않는 사람을 조용히 찾아 달라</span><em class="say">"성함을 여쭙겠습니다. 저요? 저는 없습니다."</em></div></li>
+      <li class="person"><div class="photo none">사진 준비 중</div><div class="txt"><b>선우희</b><small>「선녀와 나무꾼」의 선녀 · 여, 32</small><span>올림머리에 하늘색 원피스, 은빛 숄. 땅의 일을 다 잠깐으로 여겨 짐을 풀지 않습니다. 사람 이름을 외우지 않고 "거기"라고 부릅니다.</span><span class="job">잃어버린 날개옷의 행방</span><em class="say">"거기, 그거 좀 줘. 이름? 외워서 뭐 해, 곧 갈 건데."</em></div></li>
+      <li class="person"><div class="photo none">사진 준비 중</div><div class="txt"><b>우소라</b><small>「우렁각시」 · 여, 26</small><span>단정한 단발에 크림색 니트와 앞치마. 묻기 전에 먼저 차려 놓고 제 일은 말하지 않습니다.</span><span class="job">밥을 차려 놓던 집의 주인이 사라졌다</span><em class="say">"드셨어요? 안 드셨죠. 차려 놨어요."</em></div></li>
+    </ul>
+    <h4 class="tier">조연</h4>
+    <ul class="extras">
+      <li><b>장화</b><small>「장화홍련」 · 여, 20대</small><span>대서소의 접수 창구. 억울한 사연을 끝까지 들어 줍니다.</span></li>
+    </ul>
+  </div>
+
+  <div class="faction" style="--c:var(--out)">
+    <h3>패 밖</h3>
+    <p class="where">인왕산과 북한산 자락 · 한강 물밑 · 닫힌 지하 역</p>
+    <p>탈을 얻지 못한 이들이 삽니다.</p>
+    <h4 class="tier">조연</h4>
+    <ul class="extras">
+      <li><b>별주부</b><small>「별주부전」의 자라 · 남, 50대</small><span>옛 용궁의 마지막 벼슬아치. 아직도 묘연의 간을 받으러 다닙니다.</span></li>
+      <li><b>산신령</b><small>「금도끼 은도끼」 · 남, 나이 모름</small><span>인왕산 약수터의 노인. 패 밖 이들의 어른. 무엇이든 "이것이 네 것이냐"부터 묻습니다.</span></li>
+    </ul>
+  </div>
+
+  <p class="note" style="margin-top:1.6rem">각자 숨기는 것이 하나씩 있습니다. 유저의 성별은 자유이고, 누구와 엮일지는 당신이 고릅니다. 로맨스는 원하실 때만 진전됩니다.</p>
+</section>
+
+<section class="sheet" id="start">
+  <h2>사무소를 넘겨받는 날</h2>
+  <p>을지로 삼 층 사무소를 넘겨받는 날, 계 장부의 빈칸을 채우면 그게 당신입니다.</p>
+  <div class="ledger">
+    <h3>계 장부 · 해결사 등재</h3>
+    <dl>
+      <dt>성명 / 나이 / 성별</dt><dd>성인만 오릅니다</dd>
+      <dt>사람 / 묵은이</dt><dd>묵은이라면 어느 이야기의 누구</dd>
+      <dt>잘하는 일</dt><dd>예: 사람 찾기, 떼인 돈 받기</dd>
+      <dt>이 일을 맡은 까닭</dt><dd>예: 월세가 석 달 밀렸다</dd>
+    </dl>
+  </div>
+  <div class="roles">
+    <div class="role"><h3>사람으로</h3><p>옛이야기 속 인물들이 진짜로 산다는 것을 막 알게 된 해결사로 시작합니다. 처음이라면 이쪽을 권합니다.</p></div>
+    <div class="role"><h3>묵은이로</h3><p>어느 옛이야기의 누구인지 적어 주세요. 어느 패에도 들지 않은 떠돌이로 시작합니다.</p></div>
+  </div>
+</section>
+
+<section class="sheet" id="play">
+  <h2>할 수 있는 일</h2>
+  <ul class="todo">
+    <li>옛이야기 하나의 요즘 판인 의뢰를 풀고 삯을 받습니다.</li>
+    <li>네 패 가운데 한 곳의 식구가 되거나, 넷 사이에서 줄을 탑니다.</li>
+    <li>탈이 깨지는 일의 진상을 쫓습니다.</li>
+    <li>스탯 일곱(삯, 기운, 패 신용 넷, 들킴)이 선택에 따라 움직입니다. 일을 덮지 못하면 '들킴'이 오릅니다.</li>
+    <li>엔딩 열 가지. 조건은 직접 찾아 주세요.</li>
+  </ul>
+</section>
+
+<section class="sheet enter">
+  <h2>입장</h2>
+  <p>크랙에서 플레이할 수 있습니다. 지금은 개업 준비 중입니다.</p>
+  <a class="stamp" aria-disabled="true">개업 준비 중</a>
+</section>
+
+</main>
+
+<footer>
+  <p class="last">오래오래 살았습니다만, 아직 끝이 아닙니다.</p>
+  <p>이 안내는 가상의 이야기를 소개합니다. 실제 업체, 인물, 단체와 관계가 없습니다. 등장인물은 전원 성인입니다.</p>
+</footer>
+
+<script>
+(function(){
+  var gate=document.getElementById('gate'),door=document.getElementById('door'),paper=document.getElementById('paper'),
+      book=document.getElementById('book'),who=document.getElementById('who'),go=document.getElementById('goBtn');
+  var behind=document.querySelectorAll('header,nav,main,footer');
+  function lock(on){for(var i=0;i<behind.length;i++){behind[i].inert=on;}document.body.classList.toggle('gated',on);gate.hidden=!on;}
+  function greet(name){
+    name=(name||'').replace(/\s+/g,' ').trim().slice(0,12);
+    if(!name)return;
+    document.getElementById('you').textContent='그게 당신, '+name+'입니다.';
+  }
+  var saved=null;try{saved=sessionStorage.getItem('orae-ledger');}catch(e){}
+  if(saved===null){lock(true);paper.focus();}else{greet(saved);}
+  paper.addEventListener('click',function(){door.hidden=true;book.hidden=false;who.focus();});
+  book.addEventListener('submit',function(e){
+    e.preventDefault();
+    var name=who.value;
+    try{sessionStorage.setItem('orae-ledger',name);}catch(e){}
+    greet(name);
+    gate.classList.add('stamped');go.disabled=true;
+    var still=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    setTimeout(function(){lock(false);},still?0:900);
+  });
+})();
+</script>
+
+</body>
+</html>
