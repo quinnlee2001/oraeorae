@@ -107,25 +107,17 @@ footer .last{color:var(--paper);font-family:"Do Hyeon",sans-serif;font-size:1.2r
 .gate{position:fixed;inset:0;z-index:20;background:#07080d;display:flex;align-items:center;justify-content:center;padding:1rem;overflow:auto}
 .gate[hidden]{display:none}
 body.gated{overflow:hidden}
-.door{width:100%;max-width:26rem;margin:auto;background:#232634;border:4px solid var(--line);box-shadow:0 0 0 3px #333848,0 -30px 80px rgba(242,193,78,.16);padding:3.2rem 1.6rem 3.6rem;text-align:center;position:relative;animation:flick 1.6s steps(1) 1}
+.door{width:100%;max-width:26rem;margin:auto;background:#232634;border:4px solid var(--line);box-shadow:0 0 0 3px #333848,0 -30px 80px rgba(242,193,78,.16);padding:3.2rem 1.6rem 2.2rem;text-align:center;position:relative;animation:flick 1.6s steps(1) 1}
 @keyframes flick{0%{filter:brightness(.25)}18%{filter:brightness(1)}28%{filter:brightness(.25)}46%{filter:brightness(1)}56%{filter:brightness(.4)}70%,100%{filter:brightness(1)}}
 @media (prefers-reduced-motion:reduce){.door{animation:none}}
-.door::after{content:"";position:absolute;right:1.1rem;top:55%;width:14px;height:14px;border-radius:50%;background:#8b8571;border:3px solid var(--line)}
 .floor{margin:0 0 1.6rem;color:var(--dim);font-size:.9rem;letter-spacing:.12em}
-.taped{display:inline-block;position:relative;background:var(--paper);color:var(--ink);border:0;padding:1.5rem 1.6rem 1.2rem;font-family:"Nanum Pen Script",cursive;font-size:2rem;line-height:1.25;transform:rotate(-2deg);box-shadow:4px 4px 0 var(--line);cursor:pointer}
+.taped{display:inline-block;position:relative;margin:0;background:var(--paper);color:var(--ink);border:0;padding:1.5rem 1.6rem 1.2rem;font-family:"Nanum Pen Script",cursive;font-size:2rem;line-height:1.25;transform:rotate(-2deg);box-shadow:4px 4px 0 var(--line)}
 .taped::before{content:"";position:absolute;top:-10px;left:50%;width:72px;height:22px;margin-left:-36px;background:rgba(242,193,78,.75);transform:rotate(3deg)}
-.taped small{display:block;font-size:1.25rem;color:#5c5661}
 .hint{margin:1.6rem 0 0;color:var(--dim);font-size:.9rem}
-.book{width:100%;max-width:30rem;margin:auto;background:var(--paper);color:var(--ink);border:4px solid var(--line);box-shadow:8px 8px 0 #000;padding:2rem clamp(1.2rem,5vw,2.4rem);position:relative}
-.book[hidden],.door[hidden]{display:none}
-.book h2{text-align:center;border-bottom:3px double var(--ink);font-size:1.7rem}
-.book .from{margin:0 0 .5rem;text-align:center;color:#5c5661;font-size:.9rem}
-.book label{display:block;font-weight:700;margin-top:1rem}
-.book input{width:100%;font:inherit;font-size:1.2rem;padding:.4rem .2rem;border:0;border-bottom:2px solid var(--ink);background:transparent;color:var(--ink)}
-.book .fine{margin:.5rem 0 0;color:#5c5661;font-size:.85rem}
-.go{display:block;width:100%;margin-top:1rem;padding:.7rem;font-family:"Do Hyeon",sans-serif;font-size:1.35rem;color:var(--paper);background:var(--ink);border:3px solid var(--line);cursor:pointer}
-.go:hover{background:var(--seal)}
-.seal{position:absolute;right:1rem;top:1rem;padding:.1rem .7rem;border:5px solid var(--seal);border-radius:8px;color:var(--seal);font-family:"Do Hyeon",sans-serif;font-size:2rem;opacity:0;transform:rotate(-12deg) scale(2.2);transition:opacity .2s,transform .2s}
+.go{display:block;width:100%;margin-top:1.4rem;padding:.7rem;font-family:"Do Hyeon",sans-serif;font-size:1.35rem;color:var(--ink);background:var(--lamp);border:3px solid var(--line);box-shadow:4px 4px 0 var(--line);cursor:pointer}
+.fine{margin:1rem 0 0;color:var(--dim);font-size:.8rem}
+.go:hover{background:var(--neon)}
+.seal{position:absolute;right:1rem;top:1rem;z-index:2;background:rgba(35,38,52,.85);padding:.1rem .7rem;border:5px solid var(--seal);border-radius:8px;color:var(--seal);font-family:"Do Hyeon",sans-serif;font-size:2rem;opacity:0;transform:rotate(-12deg) scale(2.2);transition:opacity .2s,transform .2s}
 .gate.stamped .seal{opacity:1;transform:rotate(-12deg) scale(1)}
 @media (prefers-reduced-motion:reduce){.seal{transition:none}}
 </style>
@@ -134,20 +126,13 @@ body.gated{overflow:hidden}
 
 <div class="gate" id="gate" hidden>
   <div class="door" id="door">
-    <p class="floor">을지로 인쇄 골목 · 삼 층</p>
-    <button class="taped" type="button" id="paper">해결사 사무소.<br>외출 중.</button>
-    <p class="hint">석 달 묵은 글씨입니다. 종이를 누르면 문이 열립니다.</p>
-  </div>
-  <form class="book" id="book" hidden novalidate>
     <span class="seal" aria-hidden="true">등재</span>
-    <p class="from">종로 대서소에서 나왔습니다</p>
-    <h2>계 장부 · 해결사 등재</h2>
-    <p>"빈칸은 사실대로 적어 주십시오. 장부는 틀리면 안 됩니다. 성함을 여쭙겠습니다."</p>
-    <label for="who">성명</label>
-    <input id="who" name="who" type="text" maxlength="12" autocomplete="off">
-    <p class="fine">비워 두어도 됩니다. 적은 이름은 이 화면에서만 쓰고 어디에도 보내지 않습니다. 이 안내는 가상의 이야기를 소개합니다.</p>
-    <button class="go" type="submit" id="goBtn">등재하기</button>
-  </form>
+    <p class="floor">을지로 인쇄 골목 · 삼 층</p>
+    <p class="taped">해결사 사무소.<br>외출 중.</p>
+    <p class="hint">석 달 묵은 글씨입니다. 오늘부로 이 사무소는 당신 것입니다.</p>
+    <button class="go" type="button" id="goBtn">들어가기</button>
+    <p class="fine">이 안내는 가상의 이야기를 소개합니다.</p>
+  </div>
 </div>
 
 <header>
@@ -175,7 +160,7 @@ body.gated{overflow:hidden}
   <p>옛날 옛적 그 사람들이 지금 서울에 삽니다. 도깨비는 동대문 야시장에서 장사를 하고, 구미호는 강남에 병원을 차렸고, 저승사자는 종로의 낡은 사무소에서 서류를 뗍니다. 놀부는 여의도에 건물을 올렸고 심청은 다시는 뛰어들지 않겠다고 합니다. 이야기가 사람들 입에 오르는 동안은 늙지도 죽지도 않는 이들. 스스로를 <b class="w">묵은이</b>라고 부릅니다.</p>
   <p>묵은이는 숨어 삽니다. 들키면 끝이기 때문입니다. 사람으로 살려면 얼굴과 신분 한 벌, <b class="w">탈</b>이 있어야 하는데 탈 한 장을 만들려면 네 패가 다 있어야 합니다. 한 패가 이름을, 한 패가 얼굴을, 한 패가 서류를, 한 패가 돈을 댑니다. 네 패가 서로를 미워하면서도 갈라서지 못하는 까닭입니다. 약조는 셋. 들키지 않는다. 산 사람을 해치지 않는다. 패 사이의 일은 달마다 모이는 <b class="w">계</b>에서 푼다.</p>
   <p>그런데 서울은 해마다 숨기 어려워집니다. 재개발이 골목을 지우고, 카메라가 늘고, 신분은 전산으로 확인합니다. 탈은 늘 모자라고, 한 이름으로 스무 해쯤 살면 늙지 않는 것이 눈에 띄어 갈아 써야 합니다. 요즘은 탈이 깨진 채 발견되는 묵은이까지 나옵니다. 누구 짓인지는 아무도 모르고, 네 패는 서로를 의심합니다.</p>
-  <p>묵은이는 관청과 경찰과 병원과 계약서의 문턱을 넘지 못하고, 서로를 믿지도 못합니다. 그래서 일이 생기면 어느 패에도 들지 않은 단 한 사람을 부릅니다. 네 패가 함께 삯을 주는 해결사. <span id="you">그게 당신입니다.</span> 을지로 인쇄 골목 삼 층, 석 달째 '외출 중'이던 사무소를 넘겨받는 날부터 이야기가 시작됩니다.</p>
+  <p>묵은이는 관청과 경찰과 병원과 계약서의 문턱을 넘지 못하고, 서로를 믿지도 못합니다. 그래서 일이 생기면 어느 패에도 들지 않은 단 한 사람을 부릅니다. 네 패가 함께 삯을 주는 해결사. 그게 당신입니다. 을지로 인쇄 골목 삼 층, 석 달째 '외출 중'이던 사무소를 넘겨받는 날부터 이야기가 시작됩니다.</p>
   <dl class="words">
     <div><dt>묵은이</dt><dd>옛이야기 속 존재들이 스스로를 부르는 말. 오래 묵은 이</dd></div>
     <div><dt>산 사람</dt><dd>보통 사람</dd></div>
@@ -313,26 +298,16 @@ body.gated{overflow:hidden}
 
 <script>
 (function(){
-  var gate=document.getElementById('gate'),door=document.getElementById('door'),paper=document.getElementById('paper'),
-      book=document.getElementById('book'),who=document.getElementById('who'),go=document.getElementById('goBtn');
+  var gate=document.getElementById('gate'),go=document.getElementById('goBtn');
   var behind=document.querySelectorAll('header,nav,main,footer');
   function lock(on){for(var i=0;i<behind.length;i++){behind[i].inert=on;}document.body.classList.toggle('gated',on);gate.hidden=!on;}
-  function greet(name){
-    name=(name||'').replace(/\s+/g,' ').trim().slice(0,12);
-    if(!name)return;
-    document.getElementById('you').textContent='그게 당신, '+name+'입니다.';
-  }
-  var saved=null;try{saved=sessionStorage.getItem('orae-ledger');}catch(e){}
-  if(saved===null){lock(true);paper.focus();}else{greet(saved);}
-  paper.addEventListener('click',function(){door.hidden=true;book.hidden=false;who.focus();});
-  book.addEventListener('submit',function(e){
-    e.preventDefault();
-    var name=who.value;
-    try{sessionStorage.setItem('orae-ledger',name);}catch(e){}
-    greet(name);
+  var saved=null;try{saved=sessionStorage.getItem('orae-in');}catch(e){}
+  if(saved===null){lock(true);go.focus();}
+  go.addEventListener('click',function(){
+    try{sessionStorage.setItem('orae-in','1');}catch(e){}
     gate.classList.add('stamped');go.disabled=true;
     var still=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    setTimeout(function(){lock(false);},still?0:900);
+    setTimeout(function(){lock(false);},still?0:700);
   });
 })();
 </script>
